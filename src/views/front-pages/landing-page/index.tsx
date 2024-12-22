@@ -29,15 +29,19 @@ import Infielders from './Infielders'
 import Pitchers from './Pitchers'
 
 import TimelineCenter from './Timeline'
+import Gallery from './Gallery'
+import type { GalleryImage } from '@/types/imageTypes'
 
 // import Recruitment from './RecruitmentDialog'
 
 interface props {
   mode: Mode
   locale: string
+  logoURL: string
+  images: GalleryImage[]
 }
 
-const LandingPageWrapper = ({ mode, locale }: props) => {
+const LandingPageWrapper = ({ mode, locale, logoURL, images }: props) => {
   // Hooks
   const { updatePageSettings } = useSettings()
 
@@ -52,19 +56,12 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
   return (
     <>
       {/* <Recruitment /> */}
-      <HeroSection mode={mode} locale={locale} />
+      <HeroSection mode={mode} locale={locale} logoURL={logoURL} />
       <AboutUs locale={locale} />
-      {/* <CustomerReviews /> */}
-      {/* <GetStarted />
-      <Official />
-      <NationalCup2023 />
-      <HBMS2023 />
-      <NationalCup2024 /> */}
       <TimelineCenter locale={locale} />
       <Divider />
       <ProductStat locale={locale} />
       <Leaders locale={locale} />
-      {/* <Predecessors locale={locale} /> */}
       <Managers locale={locale} />
       <Media locale={locale} />
       <Players locale={locale} />
@@ -76,10 +73,9 @@ const LandingPageWrapper = ({ mode, locale }: props) => {
       <Infielders locale={locale} />
       <Divider />
       <Outfielders locale={locale} />
-      {/* <DemoVideo mode={mode} />
-      <OurTeam />
-       */}
       <Activities locale={locale} />
+      {/* <Divider /> */}
+      <Gallery images={images} locale={locale} logoURL={logoURL} />
       <Faqs locale={locale} />
       <ContactUs locale={locale} />
     </>

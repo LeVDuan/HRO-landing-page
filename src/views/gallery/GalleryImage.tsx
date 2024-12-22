@@ -5,12 +5,12 @@ import type { GalleryImage } from '@/types/imageTypes'
 
 interface Props {
   image: GalleryImage
+  logoURL: string
   onClick: () => void
 }
 
-const GalleryForImage = ({ image, onClick }: Props) => {
+const GalleryForImage = ({ image, logoURL, onClick }: Props) => {
   const url = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_800/${image.public_id}.${image.format}`
-  const logoUrl = '/logos/Logo.png'
 
   return (
     <div onClick={onClick} className='relative w-full rounded-lg h-full cursor-pointer group'>
@@ -30,7 +30,7 @@ const GalleryForImage = ({ image, onClick }: Props) => {
         <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
           <div className='relative w-20 h-20'>
             {/* Điều chỉnh kích thước logo tại đây */}
-            <Image src={logoUrl} alt='Club Logo' priority fill className='object-contain' sizes='bs-250px' />
+            <Image src={logoURL} alt='Club Logo' priority fill className='object-contain' sizes='bs-250px' />
           </div>
         </div>
       </div>

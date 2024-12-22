@@ -18,12 +18,17 @@ import { frontLayoutClasses } from '@layouts/utils/layoutClasses'
 import frontCommonStyles from '@views/front-pages/styles.module.css'
 import { getFont } from '@/utils/getFont'
 
-function Footer({ locale }: { locale: string }) {
+interface FooterProps {
+  locale: string
+  logoURL: string
+}
+
+function Footer({ locale, logoURL }: FooterProps) {
   const t = useTranslations('footer')
   const hustLink = 'https://hust.edu.vn/vi/'
   const VNTTLink = 'https://www.facebook.com/bvnttbkhn'
   const VBSFLink = 'https://vbsfvietnam.com/'
-  const VBMSLink = 'https://www.facebook.com/vbms.baseball'
+  const GalleryLink = '/gallery'
   const hroFbLink = 'https://www.facebook.com/HUSTRedOwlsBaseballTeam'
   const hroInsLink = 'https://www.instagram.com/hustredowlsbaseballteam/'
 
@@ -41,7 +46,7 @@ function Footer({ locale }: { locale: string }) {
               <div className='flex flex-col items-start gap-4'>
                 <Link href='/'>
                   <div className='flex gap-4 align-middle'>
-                    <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[55px]' />
+                    <img src={logoURL} alt='HRO Logo' className='bs-[55px]' />
                     <Typography
                       color='white'
                       fontWeight={700}
@@ -82,6 +87,16 @@ function Footer({ locale }: { locale: string }) {
               <div className='flex flex-col gap-4'>
                 <Typography
                   component={Link}
+                  href={GalleryLink}
+                  target='_blank'
+                  color='white'
+                  className='opacity-[0.78]'
+                  fontFamily={getFont(locale)}
+                >
+                  {t('Gallery')}
+                </Typography>
+                <Typography
+                  component={Link}
                   href={hustLink}
                   target='_blank'
                   color='white'
@@ -109,16 +124,6 @@ function Footer({ locale }: { locale: string }) {
                   fontFamily={getFont(locale)}
                 >
                   {t('VBSF Vietnam')}
-                </Typography>
-                <Typography
-                  component={Link}
-                  href={VBMSLink}
-                  target='_blank'
-                  color='white'
-                  className='opacity-[0.78]'
-                  fontFamily={getFont(locale)}
-                >
-                  VBMS
                 </Typography>
               </div>
             </Grid>

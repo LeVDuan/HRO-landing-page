@@ -25,6 +25,7 @@
     "classnames": "^2.5.1",
     "cloudinary": "^2.5.1",
     "keen-slider": "^6.8.6",
+    "lunar-javascript": "^1.6.13",
     "next": "^14.2.3",
     "next-intl": "^3.17.2",
     "react": "^18.3.1",

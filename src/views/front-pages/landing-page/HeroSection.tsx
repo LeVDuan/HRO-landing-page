@@ -30,9 +30,10 @@ import { getFont } from '@/utils/getFont'
 interface props {
   mode: Mode
   locale: string
+  logoURL: string
 }
 
-const HeroSection = ({ mode, locale }: props) => {
+const HeroSection = ({ mode, locale, logoURL }: props) => {
   // States
   const [dashboardPosition, setDashboardPosition] = useState({ x: 0, y: 0 })
   const [elementsPosition, setElementsPosition] = useState({ x: 0, y: 0 })
@@ -45,8 +46,17 @@ const HeroSection = ({ mode, locale }: props) => {
   // Vars
   const dashboardImageLight = '/landing-page/hero.jpg'
   const dashboardImageDark = '/landing-page/hero.jpg'
-  const elementsImageLight = '/landing-page/hero-elements-light.png'
-  const elementsImageDark = '/landing-page/hero-elements-light.png'
+
+  const elementsImageLight =
+    logoURL === '/logos/LogoXmas.png'
+      ? '/landing-page/hero-elements-light-xmas.png'
+      : '/landing-page/hero-elements-light.png'
+
+  const elementsImageDark =
+    logoURL === '/logos/LogoXmas.png'
+      ? '/landing-page/hero-elements-light-xmas.png'
+      : '/landing-page/hero-elements-light.png'
+
   const heroSectionBgLight = '/landing-page/hero-bg-light.png'
   const heroSectionBgDark = '/landing-page/hero-bg-dark.png'
   const hroFbLink = 'https://www.facebook.com/HUSTRedOwlsBaseballTeam'

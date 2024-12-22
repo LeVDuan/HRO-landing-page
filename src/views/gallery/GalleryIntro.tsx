@@ -10,9 +10,10 @@ import { getFont } from '@/utils/getFont'
 
 interface GalleryIntroProps {
   locale: string
+  logoURL: string
 }
 
-const GalleryIntro = ({ locale }: GalleryIntroProps) => {
+const GalleryIntro = ({ locale, logoURL }: GalleryIntroProps) => {
   const t = useTranslations('gallery')
 
   const CustomTypography = styled('p')(() => ({
@@ -28,7 +29,7 @@ const GalleryIntro = ({ locale }: GalleryIntroProps) => {
 
       {/* Optional: Background Pattern */}
       <div className='absolute inset-0 opacity-10'>
-        <Image src='/logos/Logo.png' alt='' fill priority sizes='bs-[250px]' className='object-cover' />
+        <Image src={logoURL} alt='' fill priority sizes='bs-[250px]' className='object-cover' />
       </div>
 
       {/* Content */}
@@ -36,7 +37,7 @@ const GalleryIntro = ({ locale }: GalleryIntroProps) => {
         <div>
           {/* Logo */}
           <div className='mb-6 mt-2'>
-            <Image src='/logos/Logo.png' alt='Red Owls Logo' width={65} height={65} className='object-contain' />
+            <Image src={logoURL} alt='Red Owls Logo' width={65} height={65} className='object-contain' />
           </div>
 
           {/* Text Content */}

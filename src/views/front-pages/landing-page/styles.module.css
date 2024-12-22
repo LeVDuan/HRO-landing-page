@@ -162,3 +162,34 @@
     transform: translateY(-10px) scale(1.08);
   }
 }
+/* Snowfall.module.css */
+.snowContainer {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100; /* Đảm bảo tuyết nằm trên các element khác */
+}
+
+.snowflake {
+  position: absolute;
+  inline-size: 10px; /* Kích thước bông tuyết */
+  block-size: 10px;
+  background-color: white;
+  border-radius: 50%;
+  animation: snow linear infinite; /* Animation tuyết rơi */
+}
+
+@keyframes snow {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+}

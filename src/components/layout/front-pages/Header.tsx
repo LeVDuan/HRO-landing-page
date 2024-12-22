@@ -39,9 +39,10 @@ import { getFont } from '@/utils/getFont'
 interface props {
   mode: Mode
   locale: string
+  logoURL: string
 }
 
-const Header = ({ mode, locale }: props) => {
+const Header = ({ mode, locale, logoURL }: props) => {
   // States
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const t = useTranslations('header')
@@ -65,14 +66,14 @@ const Header = ({ mode, locale }: props) => {
                 <i className='ri-menu-line text-textPrimary' />
               </IconButton>
               <Link href='/'>
-                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[45px]' />
+                <img src={logoURL} alt='HRO Logo' className='bs-[45px]' />
               </Link>
               <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
           ) : (
             <div className='flex items-center gap-10'>
               <Link href='/'>
-                <img src='/logos/Logo.png' alt='HRO Logo' className='bs-[45px]' />
+                <img src={logoURL} alt='HRO Logo' className='bs-[45px]' />
               </Link>
               <FrontMenu mode={mode} locale={locale} isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
             </div>
